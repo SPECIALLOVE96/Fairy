@@ -1,0 +1,50 @@
+{
+  "name": "dsh-pet-dafeiyu",
+  "version": "0.1.0",
+  "description": "DSH 桌宠 fairy：一只会看你的眼睛 — 随模型输出垂眼皮、扫描、花屏、跟随鼠标",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "pet",
+    "desktop-pet",
+    "mascot",
+    "fairy"
+  ],
+  "author": "SPECIALLOVE96",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SPECIALLOVE96/fairy.git"
+  },
+  "homepage": "https://github.com/SPECIALLOVE96/fairy#readme",
+  "bugs": {
+    "url": "https://github.com/SPECIALLOVE96/fairy/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    },
+    "engines": {
+      "dsh": ">=0.2.0-rc.2"
+    }
+  }
+}

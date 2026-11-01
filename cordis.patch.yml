@@ -1,0 +1,4 @@
+# dsh-pet-dafeiyu bundle patch: 把自己的 dsh.client row 插进 web 插件名册。
+- insert:
+    - id: dsh-pet-dafeiyu
+      name: dsh-pet-dafeiyu
