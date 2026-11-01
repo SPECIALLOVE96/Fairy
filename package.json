@@ -29,11 +29,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SPECIALLOVE96/fairy.git"
+    "url": "git+https://github.com/SPECIALLOVE96/Fairy.git"
   },
-  "homepage": "https://github.com/SPECIALLOVE96/fairy#readme",
+  "homepage": "https://github.com/SPECIALLOVE96/Fairy#readme",
   "bugs": {
-    "url": "https://github.com/SPECIALLOVE96/fairy/issues"
+    "url": "https://github.com/SPECIALLOVE96/Fairy/issues"
   },
   "dsh": {
     "bundle": {
