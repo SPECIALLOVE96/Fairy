@@ -25,31 +25,31 @@ window.__ModuleLoader__.load({
     const BUILTIN_SVG = `
 <svg viewBox="0 0 132 112" role="img" aria-label="${CONFIG.name}">
   <g class="fish">
-    <rect class="halo" x="2" y="-4" width="128" height="120" rx="32" fill="none" stroke="#5b85e0" stroke-width="3.6"/>
-    <rect class="halo halo2" x="2" y="-4" width="128" height="120" rx="32" fill="none" stroke="#5b85e0" stroke-width="3.6"/>
-    <circle class="bub" cx="112" cy="44" r="3.2" fill="#9fb2ff" opacity="0.9"/>
-    <circle class="bub b2" cx="120" cy="32" r="2.3" fill="#9fb2ff" opacity="0.7"/>
-    <circle class="bub b3" cx="104" cy="24" r="1.8" fill="#9fb2ff" opacity="0.6"/>
+    <rect class="halo fairy-halo" x="2" y="-4" width="128" height="120" rx="32" fill="none" stroke="#5b85e0" stroke-width="3.6"/>
+    <rect class="halo halo2 fairy-halo" x="2" y="-4" width="128" height="120" rx="32" fill="none" stroke="#5b85e0" stroke-width="3.6"/>
+    <circle class="bub fairy-bub" cx="112" cy="44" r="3.2" fill="#9fb2ff" opacity="0.9"/>
+    <circle class="bub b2 fairy-bub" cx="120" cy="32" r="2.3" fill="#9fb2ff" opacity="0.7"/>
+    <circle class="bub b3 fairy-bub" cx="104" cy="24" r="1.8" fill="#9fb2ff" opacity="0.6"/>
     <circle class="aura" cx="66" cy="56" r="62" fill="url(#dafeiyu-aura)"/>
     <circle cx="66" cy="56" r="47" fill="#3f74e0" opacity="0.28"/>
-    <circle class="rim" cx="66" cy="56" r="53" fill="none" stroke="#5b8cff" stroke-width="16" opacity="0.17" filter="url(#dafeiyu-glow)"/>
-    <circle class="rim" cx="66" cy="56" r="49.5" fill="none" stroke="#7fa8ff" stroke-width="10" opacity="0.38" filter="url(#dafeiyu-glow)"/>
-    <circle class="rim" cx="66" cy="56" r="49" fill="none" stroke="#cfe0ff" stroke-width="5" opacity="0.72" filter="url(#dafeiyu-glow)"/>
-    <circle cx="66" cy="56" r="47" fill="#2b46c8"/>
+    <circle class="rim fairy-rim-soft" cx="66" cy="56" r="53" fill="none" stroke="#5b8cff" stroke-width="16" opacity="0.17" filter="url(#dafeiyu-glow)"/>
+    <circle class="rim fairy-rim-mid" cx="66" cy="56" r="49.5" fill="none" stroke="#7fa8ff" stroke-width="10" opacity="0.38" filter="url(#dafeiyu-glow)"/>
+    <circle class="rim fairy-rim-hot" cx="66" cy="56" r="49" fill="none" stroke="#cfe0ff" stroke-width="5" opacity="0.72" filter="url(#dafeiyu-glow)"/>
+    <circle class="fairy-body" cx="66" cy="56" r="47" fill="#2b46c8"/>
     <g class="spin" clip-path="url(#dafeiyu-body-clip)">
-      <circle cx="66" cy="56" r="36" fill="none" stroke="#24397e" stroke-width="5"/>
-      <rect x="33" y="23" width="66" height="66" rx="5" fill="#24397e"/>
+      <circle class="fairy-deep-stroke" cx="66" cy="56" r="36" fill="none" stroke="#24397e" stroke-width="5"/>
+      <rect class="fairy-deep" x="33" y="23" width="66" height="66" rx="5" fill="#24397e"/>
     </g>
     <g class="eye-open eye-awake">
       <circle cx="66" cy="56" r="32" fill="#f2f6ff"/>
-      <circle cx="66" cy="56" r="30" fill="none" stroke="#16265e" stroke-width="3.4" opacity="0.38" filter="url(#dafeiyu-glow)"/>
+      <circle class="fairy-shadow" cx="66" cy="56" r="30" fill="none" stroke="#16265e" stroke-width="3.4" opacity="0.38" filter="url(#dafeiyu-glow)"/>
       <g class="look">
-        <circle cx="66" cy="56" r="23.4" fill="#8eb4d7"/>
+        <circle class="fairy-gray" cx="66" cy="56" r="23.4" fill="#8eb4d7"/>
         <circle class="sky-glow" cx="66" cy="56" r="15.5" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.17" filter="url(#dafeiyu-glow)"/>
         <circle class="sky-glow" cx="66" cy="56" r="19" fill="none" stroke="#ffffff" stroke-width="3.6" opacity="0.09" filter="url(#dafeiyu-glow)"/>
         <circle class="sky-glow" cx="66" cy="56" r="15.5" fill="none" stroke="#ffffff" stroke-width="2.2" opacity="0.55" filter="url(#dafeiyu-glow)"/>
-        <circle cx="66" cy="56" r="15.5" fill="#3481cd"/>
-        <circle cx="66" cy="56" r="12.5" fill="#16265e"/>
+        <circle class="fairy-sky" cx="66" cy="56" r="15.5" fill="#3481cd"/>
+        <circle class="fairy-pupil" cx="66" cy="56" r="12.5" fill="#16265e"/>
         <circle cx="78" cy="70" r="7" fill="#ffffff"/>
       </g>
     </g>
@@ -57,7 +57,7 @@ window.__ModuleLoader__.load({
       <rect class="grain" x="19" y="9" width="94" height="94" filter="url(#dafeiyu-grain)"/>
     </g>
     <g class="eye-closed">
-      <circle cx="66" cy="56" r="38.5" fill="#1f3270"/>
+      <circle class="fairy-deep" cx="66" cy="56" r="38.5" fill="#1f3270"/>
       <path d="M40 56 Q66 74 92 56" stroke="#f2f6ff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.9"/>
     </g>
     <defs>
@@ -75,9 +75,9 @@ window.__ModuleLoader__.load({
       </filter>
       <clipPath id="dafeiyu-body-clip"><circle cx="66" cy="56" r="47"/></clipPath>
       <radialGradient id="dafeiyu-aura" cx="50%" cy="50%" r="50%">
-        <stop offset="55%" stop-color="#5b8cff" stop-opacity="0"/>
-        <stop offset="78%" stop-color="#5b8cff" stop-opacity="0.34"/>
-        <stop offset="100%" stop-color="#7aa6ff" stop-opacity="0"/>
+        <stop class="fairy-aura-a" offset="55%" stop-color="#5b8cff" stop-opacity="0"/>
+        <stop class="fairy-aura-a" offset="78%" stop-color="#5b8cff" stop-opacity="0.34"/>
+        <stop class="fairy-aura-b" offset="100%" stop-color="#7aa6ff" stop-opacity="0"/>
       </radialGradient>
       <clipPath id="dafeiyu-eye-clip"><circle cx="66" cy="56" r="33"/></clipPath>
       <clipPath id="dafeiyu-half-clip"><path class="lid-clip-path" d="M0 52 Q66 64 132 52 V112 H0 Z"/></clipPath>
@@ -94,7 +94,7 @@ window.__ModuleLoader__.load({
     <g class="eye-drowsy">
       <g class="drowsy-anim">
         <g clip-path="url(#dafeiyu-top-clip)">
-          <circle cx="66" cy="56" r="38.5" fill="#24397e"/>
+          <circle class="fairy-deep" cx="66" cy="56" r="38.5" fill="#24397e"/>
         </g>
         <path class="lid-edge" d="M33 52 Q66 64 99 52" stroke="#e8f1ff" stroke-width="2.4" fill="none" stroke-linecap="round" filter="url(#dafeiyu-glow)" opacity="0.95"/>
       </g>
@@ -131,6 +131,43 @@ window.__ModuleLoader__.load({
 [${ATTR}][data-anchor="tl"] { left: ${CONFIG.left}px; top: 96px; }
 [${ATTR}][data-anchor="br"] { right: 210px; bottom: 28px; }
 [${ATTR}][data-anchor="tr"] { right: 28px; top: 96px; }
+/* 自由位置：拖动过之后，锚点失效，用绝对坐标 */
+[${ATTR}][data-free="1"] {
+  left: var(--free-x, 0px);
+  top: var(--free-y, 0px);
+  right: auto;
+  bottom: auto;
+}
+[${ATTR}].is-dragging .art-wrap { cursor: grabbing; }
+[${ATTR}].is-dragging { transition: none; }
+/* 配色面板 */
+[${ATTR}] .palette {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%) translateY(6px);
+  display: none;
+  gap: 7px;
+  padding: 8px 9px;
+  border-radius: 999px;
+  background: #1b2450;
+  border: 1.5px solid #4a63c8;
+  box-shadow: 0 10px 26px rgba(10, 16, 48, .42);
+  pointer-events: auto;
+  z-index: 3;
+}
+[${ATTR}] .palette.on { display: flex; transform: translateX(-50%) translateY(0); }
+[${ATTR}] .palette button {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .28);
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease;
+}
+[${ATTR}] .palette button:hover { transform: scale(1.14); border-color: #fff; }
+[${ATTR}] .palette button[aria-pressed="true"] { border-color: #fff; box-shadow: 0 0 0 2px rgba(255, 255, 255, .25); }
 [${ATTR}] .art-wrap {
   position: relative;
   display: block;
@@ -186,6 +223,23 @@ window.__ModuleLoader__.load({
 [${ATTR}] .grain { opacity: 0.16; mix-blend-mode: overlay; pointer-events: none; }
 /* ④ 眼睛跟随：瞳孔 + 高光整体偏移 */
 [${ATTR}] .look { transform: translate(var(--look-x, 0px), var(--look-y, 0px)); transition: transform 0.22s cubic-bezier(.22,1,.36,1); }
+/* 配色变量：五套预设由 JS 切换，默认是宝石蓝 */
+[${ATTR}] .fairy-body { fill: var(--fairy-body, #2b46c8); }
+[${ATTR}] .fairy-deep { fill: var(--fairy-deep, #24397e); }
+[${ATTR}] .fairy-deep-stroke { stroke: var(--fairy-deep, #24397e); }
+[${ATTR}] .fairy-gray { fill: var(--fairy-gray, #8eb4d7); }
+[${ATTR}] .fairy-sky { fill: var(--fairy-sky, #3481cd); }
+[${ATTR}] .fairy-pupil { fill: var(--fairy-pupil, #16265e); }
+/* 光效跟着主色走：用 color-mix 从 --fairy-body 推，不需要为每套配色手写光色 */
+[${ATTR}] .fairy-rim-soft { stroke: color-mix(in srgb, var(--fairy-body, #2b46c8) 74%, white); }
+[${ATTR}] .fairy-rim-mid { stroke: color-mix(in srgb, var(--fairy-body, #2b46c8) 46%, white); }
+[${ATTR}] .fairy-rim-hot { stroke: color-mix(in srgb, var(--fairy-body, #2b46c8) 18%, white); }
+[${ATTR}] .fairy-aura-a { stop-color: color-mix(in srgb, var(--fairy-body, #2b46c8) 68%, white); }
+[${ATTR}] .fairy-aura-b { stop-color: color-mix(in srgb, var(--fairy-body, #2b46c8) 82%, white); }
+[${ATTR}] .fairy-shadow { stroke: var(--fairy-pupil, #16265e); }
+/* 方框波纹与小气泡也跟随主色 */
+[${ATTR}] .fairy-halo { stroke: color-mix(in srgb, var(--fairy-body, #2b46c8) 62%, white); }
+[${ATTR}] .fairy-bub { fill: color-mix(in srgb, var(--fairy-body, #2b46c8) 40%, white); }
 [${ATTR}] .spin { transform-origin: 66px 56px; transform-box: view-box; animation: dafeiyu-spin 18s linear infinite; }
 
 /* 待机花屏：约 11 秒闪一次，持续 ~150ms；思考态不触发（眼皮在动，别再叠） */
@@ -433,6 +487,118 @@ window.__ModuleLoader__.load({
       const initialAnchor = readAnchor();
       root.setAttribute("data-anchor", initialAnchor);
 
+      // ── 自由位置：拖动后记住坐标 ──
+      const POS_STORE = "dsh-fairy.pos";
+      const applyFreePos = (x, y) => {
+        const w = root.offsetWidth || CONFIG.width;
+        const h = root.offsetHeight || CONFIG.height;
+        const maxX = Math.max(4, window.innerWidth - w - 4);
+        const maxY = Math.max(4, window.innerHeight - h - 4);
+        root.setAttribute("data-free", "1");
+        root.style.setProperty("--free-x", Math.min(Math.max(4, x), maxX) + "px");
+        root.style.setProperty("--free-y", Math.min(Math.max(4, y), maxY) + "px");
+      };
+      const saveFreePos = () => {
+        const rect = root.getBoundingClientRect();
+        try {
+          localStorage.setItem(POS_STORE, JSON.stringify({ x: Math.round(rect.left), y: Math.round(rect.top) }));
+        } catch (error) {}
+      };
+      const clearFreePos = () => {
+        root.removeAttribute("data-free");
+        root.style.removeProperty("--free-x");
+        root.style.removeProperty("--free-y");
+        try { localStorage.removeItem(POS_STORE); } catch (error) {}
+      };
+      try {
+        const rawPos = localStorage.getItem(POS_STORE);
+        if (rawPos) {
+          const pos = JSON.parse(rawPos);
+          if (pos && typeof pos.x === "number" && typeof pos.y === "number") applyFreePos(pos.x, pos.y);
+        }
+      } catch (error) {}
+
+      // ── 配色：五套预设 ──
+      const PALETTES = [
+        { id: "gem", name: "宝石蓝", body: "#2b46c8", deep: "#24397e", gray: "#8eb4d7", sky: "#3481cd", pupil: "#16265e" },
+        { id: "sakura", name: "樱粉", body: "#cf6b93", deep: "#7c3653", gray: "#f2d2dd", sky: "#e081a6", pupil: "#3a1622" },
+        { id: "celadon", name: "青瓷", body: "#6fa495", deep: "#3a5f57", gray: "#e2ece7", sky: "#7fb3a4", pupil: "#22332e" },
+        { id: "amber", name: "琥珀金", body: "#d99b22", deep: "#7a5416", gray: "#eddcb0", sky: "#e6ac3c", pupil: "#3b2a0a" },
+        { id: "mono", name: "灰白", body: "#8a93a3", deep: "#4d5563", gray: "#d5dae3", sky: "#9aa4b5", pupil: "#2a3038" }
+      ];
+      const PALETTE_STORE = "dsh-fairy.palette";
+      const palette = document.createElement("div");
+      palette.className = "palette";
+      const applyPalette = (id) => {
+        const next = PALETTES.filter((item) => item.id === id)[0] || PALETTES[0];
+        root.style.setProperty("--fairy-body", next.body);
+        root.style.setProperty("--fairy-deep", next.deep);
+        root.style.setProperty("--fairy-gray", next.gray);
+        root.style.setProperty("--fairy-sky", next.sky);
+        root.style.setProperty("--fairy-pupil", next.pupil);
+        palette.querySelectorAll("button").forEach((btn) => {
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-palette") === next.id ? "true" : "false");
+        });
+        try { localStorage.setItem(PALETTE_STORE, next.id); } catch (error) {}
+      };
+      PALETTES.forEach((item) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.setAttribute("data-palette", item.id);
+        btn.setAttribute("title", item.name);
+        btn.style.background = "linear-gradient(135deg, " + item.body + " 0%, " + item.sky + " 100%)";
+        btn.addEventListener("click", (event) => {
+          event.stopPropagation();
+          applyPalette(item.id);
+          showSay(item.name);
+        });
+        palette.appendChild(btn);
+      });
+      root.appendChild(palette);
+      let savedPalette = "gem";
+      try { savedPalette = localStorage.getItem(PALETTE_STORE) || "gem"; } catch (error) {}
+      applyPalette(savedPalette);
+
+      // ── 拖动换位置（按住拖，松手记住；不触发台词） ──
+      let dragState = null;
+      let suppressClick = false;
+      const onDragDown = (event) => {
+        if (event.button !== 0) return;
+        const rect = root.getBoundingClientRect();
+        dragState = { x: event.clientX, y: event.clientY, left: rect.left, top: rect.top, moved: false };
+        root.classList.add("is-dragging");
+      };
+      const onDragMove = (event) => {
+        if (dragState === null) return;
+        const dx = event.clientX - dragState.x;
+        const dy = event.clientY - dragState.y;
+        if (!dragState.moved && Math.abs(dx) + Math.abs(dy) > 4) dragState.moved = true;
+        if (!dragState.moved) return;
+        event.preventDefault();
+        applyFreePos(dragState.left + dx, dragState.top + dy);
+      };
+      const onDragUp = () => {
+        if (dragState === null) return;
+        const moved = dragState.moved;
+        dragState = null;
+        root.classList.remove("is-dragging");
+        if (moved) {
+          suppressClick = true;
+          saveFreePos();
+          setTimeout(() => { suppressClick = false; }, 60);
+        }
+      };
+      window.addEventListener("pointermove", onDragMove);
+      window.addEventListener("pointerup", onDragUp);
+      const artNode = root.querySelector(".art-wrap");
+      if (artNode !== null) artNode.addEventListener("pointerdown", onDragDown);
+      // 右键呼出配色面板
+      const onContextMenu = (event) => {
+        event.preventDefault();
+        palette.classList.toggle("on");
+      };
+      root.addEventListener("contextmenu", onContextMenu);
+
       const hotkeyParts = String(CONFIG.hotkey || "ctrl+alt+f").toLowerCase().split("+").map((part) => part.trim());
       const hotkeyKey = hotkeyParts[hotkeyParts.length - 1];
       const hotkeyMods = hotkeyParts.slice(0, -1);
@@ -445,6 +611,7 @@ window.__ModuleLoader__.load({
         const current = root.getAttribute("data-anchor") || "bl";
         const index = ANCHORS.indexOf(current);
         const next = ANCHORS[(index + 1) % ANCHORS.length];
+        clearFreePos();
         root.setAttribute("data-anchor", next);
         playEnter(next);
         try { localStorage.setItem(ANCHOR_STORE, next); } catch (error) {}
@@ -502,10 +669,97 @@ window.__ModuleLoader__.load({
       pollTimer = setInterval(syncBusy, 900);
       syncBusy();
 
+      // ── 悬浮窗投递：从 /fairy/inbox 取文字，写进 DSH 的输入框并回车 ──
+      const findComposer = () => {
+        const nodes = Array.from(
+          document.querySelectorAll("textarea, [contenteditable='true'], [role='textbox']")
+        );
+        const shown = nodes.filter((node) => {
+          const rect = node.getBoundingClientRect();
+          return rect.width > 80 && rect.height > 12 && rect.top > 0 && rect.bottom <= window.innerHeight + 4;
+        });
+        if (shown.length === 0) return null;
+        // 输入框通常最靠下，取 top 最大的
+        return shown.sort((a, b) => b.getBoundingClientRect().top - a.getBoundingClientRect().top)[0];
+      };
+
+      const findSendButton = () => {
+        const bottom = window.innerHeight * 0.55;
+        const cands = Array.from(document.querySelectorAll("button")).filter((b) => {
+          const r = b.getBoundingClientRect();
+          return r.width > 0 && r.height > 0 && r.top > bottom && !b.disabled;
+        });
+        const labelled = cands.find((b) => {
+          const t = (b.getAttribute("aria-label") || "") + (b.getAttribute("title") || "") + (b.textContent || "");
+          return /发送|发送消息|send|submit/i.test(t);
+        });
+        if (labelled) return labelled;
+        // 退而求其次：右下角最靠右的那个按钮
+        return cands.sort((a, b) => b.getBoundingClientRect().left - a.getBoundingClientRect().left)[0] || null;
+      };
+
+      const readComposer = (el) => (el.tagName === "TEXTAREA" || el.tagName === "INPUT" ? el.value : el.textContent) || "";
+
+      const injectIntoComposer = (text) => {
+        const el = findComposer();
+        if (el === null) return "no-composer";
+        try { el.focus(); } catch (error) {}
+
+        if (el.tagName === "TEXTAREA" || el.tagName === "INPUT") {
+          const proto = el.tagName === "TEXTAREA" ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;
+          const setter = Object.getOwnPropertyDescriptor(proto, "value")?.set;
+          if (setter) setter.call(el, text); else el.value = text;
+        } else {
+          const range = document.createRange();
+          range.selectNodeContents(el);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          document.execCommand("insertText", false, text);
+        }
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+
+        const key = { key: "Enter", code: "Enter", keyCode: 13, which: 13, bubbles: true, cancelable: true };
+        el.dispatchEvent(new KeyboardEvent("keydown", key));
+
+        // 300ms 后检查是否清空；没清空就点发送按钮
+        setTimeout(() => {
+          const still = readComposer(el).trim().length > 0;
+          if (!still) { showSay("已发送"); return; }
+          const btn = findSendButton();
+          if (btn === null) { showSay("找不到发送按钮"); return; }
+          try {
+            btn.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true }));
+            btn.dispatchEvent(new PointerEvent("pointerup", { bubbles: true }));
+            btn.click();
+          } catch (error) {}
+          setTimeout(() => {
+            showSay(readComposer(el).trim().length === 0 ? "已发送" : "发送按钮也无效");
+          }, 400);
+        }, 300);
+
+        return "ok";
+      };
+      const pullInbox = () => {
+        fetch("/fairy/inbox", { cache: "no-store" })
+          .then((res) => (res.ok ? res.json() : null))
+          .then((data) => {
+            if (data === null || typeof data.text !== "string" || data.text.length === 0) return;
+            const result = injectIntoComposer(data.text);
+            if (result !== "ok") showSay(result === "no-composer" ? "找不到输入框" : String(result));
+          })
+          .catch(() => {});
+      };
+      const inboxTimer = setInterval(pullInbox, 900);
+      pullInbox();
+
       // 首次入场
       playEnter(initialAnchor);
 
-      const onClick = () => {
+      const onClick = (event) => {
+        if (suppressClick) return;
+        if (event.target instanceof Element && event.target.closest(".palette") !== null) return;
         showSay(lines[Math.floor(Math.random() * lines.length)]);
       };
       root.addEventListener("click", onClick);
@@ -544,7 +798,11 @@ window.__ModuleLoader__.load({
         if (blinkTimer !== null) clearTimeout(blinkTimer);
         if (blinkOffTimer !== null) clearTimeout(blinkOffTimer);
         if (pollTimer !== null) clearInterval(pollTimer);
+        if (inboxTimer !== null) clearInterval(inboxTimer);
         root.removeEventListener("click", onClick);
+        root.removeEventListener("contextmenu", onContextMenu);
+        window.removeEventListener("pointermove", onDragMove);
+        window.removeEventListener("pointerup", onDragUp);
         window.removeEventListener("keydown", onKeyDown);
         window.removeEventListener("keydown", onThinkKey);
         window.removeEventListener("pointermove", onPointerMove);

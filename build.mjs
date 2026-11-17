@@ -54,5 +54,8 @@ const out = template
   .replace("__CONFIG__", JSON.stringify(config))
   .replace("__ART__", JSON.stringify(art));
 
-fs.writeFileSync(path.join(root, "lib", "client.js"), out);
-console.log(`wrote: lib/client.js (${(out.length / 1024).toFixed(1)} KB)`);
+// 输出名可覆盖：插件被 DSH 占用时（硬链接锁定）改写成 client.v2.js
+const outName = process.env.FAIRY_OUT || "client.js";
+const outPath = path.join(root, "lib", outName);
+fs.writeFileSync(outPath, out);
+console.log(`wrote: lib/${outName} (${(out.length / 1024).toFixed(1)} KB)`);

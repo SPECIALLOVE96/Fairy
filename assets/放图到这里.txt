@@ -1,0 +1,8 @@
+﻿把你的角色图放进这个目录，文件名必须是：
+  character.png   （或 .webp / .jpg / .svg）
+可选：
+  character-blink.png   ← 闭眼帧，有它就会眨眼
+
+建议：透明背景 PNG，正方形，512x512 左右。
+放好后跟大肥鱼说一声，它跑 
+ode build.mjs 就会把你的图内联进插件。
