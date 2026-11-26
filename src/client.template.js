@@ -1,5 +1,5 @@
 /**
- * dsh-pet-dafeiyu — browser half（模板，由 build.mjs 生成 lib/client.js）v0.2
+ * dsh-pet-fairy — browser half（模板，由 build.mjs 生成 lib/client.js）v0.2
  *
  * 眨眼是"动画"而不是硬切：
  *  - SVG 模式：眼皮 scaleY 补间，随机间隔（带抖动）+ 概率性连眨
@@ -8,7 +8,7 @@
  * 形象来源：assets/character.* 优先，否则用内置手绘 SVG 鱼。
  */
 window.__ModuleLoader__.load({
-  id: "dsh-pet-dafeiyu",
+  id: "dsh-pet-fairy",
   factory: (require) => {
     var module = { exports: {} };
     var exports = module.exports;
@@ -431,6 +431,94 @@ window.__ModuleLoader__.load({
            </div>`
         : `<div class="art-wrap">${BUILTIN_SVG}</div>`;
 
+    // ── 配色表：设置页与桌宠共用同一份 ──
+    const PALETTE_PRESETS = [
+      { id: "gem", name: "宝石蓝", body: "#2b46c8", deep: "#24397e", gray: "#8eb4d7", sky: "#3481cd", pupil: "#16265e" },
+      { id: "sakura", name: "樱粉", body: "#cf6b93", deep: "#7c3653", gray: "#f2d2dd", sky: "#e081a6", pupil: "#3a1622" },
+      { id: "celadon", name: "青瓷", body: "#6fa495", deep: "#3a5f57", gray: "#e2ece7", sky: "#7fb3a4", pupil: "#22332e" },
+      { id: "amber", name: "琥珀金", body: "#d99b22", deep: "#7a5416", gray: "#eddcb0", sky: "#e6ac3c", pupil: "#3b2a0a" },
+      { id: "mono", name: "灰白", body: "#8a93a3", deep: "#4d5563", gray: "#d5dae3", sky: "#9aa4b5", pupil: "#2a3038" }
+    ];
+
+    /** 由 mount 注入：设置页改配色时调用它 */
+    let paletteApplier = null;
+    /** 当前选中的配色 id（设置页高亮用） */
+    let currentPaletteId = "gem";
+    const paletteListeners = new Set();
+
+    function readPaletteId() {
+      try {
+        const saved = localStorage.getItem("dsh-fairy.palette");
+        if (saved && PALETTE_PRESETS.some((p) => p.id === saved)) return saved;
+      } catch (error) {}
+      return "gem";
+    }
+
+    function setPalette(id) {
+      const next = PALETTE_PRESETS.some((p) => p.id === id) ? id : "gem";
+      currentPaletteId = next;
+      try { localStorage.setItem("dsh-fairy.palette", next); } catch (error) {}
+      if (paletteApplier !== null) {
+        try { paletteApplier(next); } catch (error) {}
+      }
+      paletteListeners.forEach((fn) => { try { fn(next); } catch (error) {} });
+    }
+
+    function makeSettingsSection(React) {
+      const h = React.createElement;
+      return function FairySettings() {
+        const [current, setCurrent] = React.useState(readPaletteId());
+        React.useEffect(() => {
+          const fn = (id) => setCurrent(id);
+          paletteListeners.add(fn);
+          return () => { paletteListeners.delete(fn); };
+        }, []);
+        return h(
+          "div",
+          { style: { display: "flex", flexDirection: "column", gap: "14px", padding: "4px 2px" } },
+          h("div", { style: { fontSize: "13px", opacity: 0.75 } }, "桌宠配色"),
+          h(
+            "div",
+            { style: { display: "flex", gap: "10px", flexWrap: "wrap" } },
+            PALETTE_PRESETS.map((p) =>
+              h(
+                "button",
+                {
+                  key: p.id,
+                  type: "button",
+                  title: p.name,
+                  "aria-pressed": current === p.id,
+                  onClick: () => { setPalette(p.id); setCurrent(p.id); },
+                  style: {
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    padding: "7px 12px",
+                    borderRadius: "9px",
+                    cursor: "pointer",
+                    color: "inherit",
+                    background: current === p.id ? "rgba(120,160,255,.22)" : "transparent",
+                    border: current === p.id ? "1px solid rgba(140,180,255,.85)" : "1px solid rgba(140,160,220,.35)",
+                  },
+                },
+                h("span", {
+                  style: {
+                    width: "16px",
+                    height: "16px",
+                    borderRadius: "50%",
+                    background: "linear-gradient(135deg," + p.body + "," + p.sky + ")",
+                    boxShadow: "0 0 0 1px rgba(255,255,255,.25) inset",
+                  },
+                }),
+                p.name
+              )
+            )
+          ),
+          h("div", { style: { fontSize: "12px", opacity: 0.55 } }, "立即生效，并记住选择。也可以右键桌宠切换。")
+        );
+      };
+    }
+
     function mount() {
       // 清掉可能残留的旧实例（热重载时旧实例可能还在淡出，300ms 后才移除）
       document.querySelectorAll("[" + ATTR + "]").forEach((node) => node.remove());
@@ -518,14 +606,8 @@ window.__ModuleLoader__.load({
         }
       } catch (error) {}
 
-      // ── 配色：五套预设 ──
-      const PALETTES = [
-        { id: "gem", name: "宝石蓝", body: "#2b46c8", deep: "#24397e", gray: "#8eb4d7", sky: "#3481cd", pupil: "#16265e" },
-        { id: "sakura", name: "樱粉", body: "#cf6b93", deep: "#7c3653", gray: "#f2d2dd", sky: "#e081a6", pupil: "#3a1622" },
-        { id: "celadon", name: "青瓷", body: "#6fa495", deep: "#3a5f57", gray: "#e2ece7", sky: "#7fb3a4", pupil: "#22332e" },
-        { id: "amber", name: "琥珀金", body: "#d99b22", deep: "#7a5416", gray: "#eddcb0", sky: "#e6ac3c", pupil: "#3b2a0a" },
-        { id: "mono", name: "灰白", body: "#8a93a3", deep: "#4d5563", gray: "#d5dae3", sky: "#9aa4b5", pupil: "#2a3038" }
-      ];
+      // ── 配色：五套预设（表在模块级，设置页共用）──
+      const PALETTES = PALETTE_PRESETS;
       const PALETTE_STORE = "dsh-fairy.palette";
       const palette = document.createElement("div");
       palette.className = "palette";
@@ -541,6 +623,8 @@ window.__ModuleLoader__.load({
         });
         try { localStorage.setItem(PALETTE_STORE, next.id); } catch (error) {}
       };
+      paletteApplier = applyPalette;
+      currentPaletteId = applyPalette && readPaletteId();
       PALETTES.forEach((item) => {
         const btn = document.createElement("button");
         btn.type = "button";
@@ -821,11 +905,39 @@ window.__ModuleLoader__.load({
       try {
         const effect =
           ctx && typeof ctx.effect === "function"
-            ? (fn) => ctx.effect(fn, "dsh-pet-dafeiyu: mount")
+            ? (fn) => ctx.effect(fn, "dsh-pet-fairy: mount")
             : (fn) => { fn(); };
         effect(mount);
       } catch (error) {
-        try { console.warn("[dsh-pet-dafeiyu] mount failed:", error); } catch {}
+        try { console.warn("[dsh-pet-fairy] mount failed:", error); } catch {}
+      }
+
+      // 设置 → 插件 → fairy：配色选择区
+      try {
+        let React = null;
+        try { React = require("react"); } catch (error) { React = null; }
+        const slots = ctx && typeof ctx.get === "function" ? ctx.get("slots") : ctx && ctx.slots;
+        if (React !== null && slots && typeof slots.inject === "function" && typeof slots.register === "function") {
+          const section = makeSettingsSection(React);
+          const off = slots.inject("settings.section", () =>
+            slots.register(
+              {
+                name: "settings.section",
+                id: "dsh-pet-fairy",
+                order: 120,
+                label: () => "fairy",
+              },
+              section
+            )
+          );
+          if (typeof ctx.effect === "function") {
+            ctx.effect(() => () => { try { off?.(); } catch (error) {} }, "dsh-pet-fairy: settings section");
+          }
+        } else {
+          console.warn("[dsh-pet-fairy] settings section skipped", { react: React !== null, slots: Boolean(slots) });
+        }
+      } catch (error) {
+        try { console.warn("[dsh-pet-fairy] settings section failed:", error); } catch {}
       }
     }
 

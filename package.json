@@ -1,18 +1,18 @@
 {
   "name": "dsh-pet-fairy",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "DSH 桌宠 fairy：一只会看你的眼睛 — 随模型输出垂眼皮、扫描、花屏，可拖动、5 套配色",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
-    "./client": "./lib/client.v5.js",
+    "./client": "./lib/client.js",
     "./package.json": "./package.json",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./locale/*.json": "./locale/*.json"
   },
   "files": [
-    "lib/client.v5.js",
+    "lib/client.js",
     "lib/index.js",
     "locale",
     "cordis.patch.yml",
