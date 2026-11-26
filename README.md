@@ -1,11 +1,14 @@
-# dsh-pet-dafeiyu · fairy
+# dsh-pet-fairy · fairy
 
 > 一只会看你的眼睛。给 DeepSeek Harness 用的桌面宠物插件。
 
-![npm](https://img.shields.io/npm/v/dsh-pet-dafeiyu)
-![license](https://img.shields.io/npm/l/dsh-pet-dafeiyu)
+![npm](https://img.shields.io/npm/v/dsh-pet-fairy)
+![license](https://img.shields.io/npm/l/dsh-pet-fairy)
 
 它不只是一段循环动画：**它真的知道你正在工作**——模型输出时，它会把眼皮垂下来、一道扫描光从上往下走一遍。
+
+> **装了觉得还行？** 去 [GitHub 点个 ⭐](https://github.com/SPECIALLOVE96/Fairy)，或者留一条 [issue](https://github.com/SPECIALLOVE96/Fairy/issues) 说说哪里别扭。
+> 一个人做的小插件，一颗星、一句反馈，就是它继续更新的理由。
 
 ## 特性
 
@@ -23,10 +26,10 @@
 
 ```sh
 # npm
-dsh plugin --profile desktop add dsh-pet-dafeiyu
+dsh plugin --profile desktop add dsh-pet-fairy
 
 # 本地 tarball
-dsh plugin --profile desktop add file:/path/to/dsh-pet-dafeiyu-0.2.0.tgz
+dsh plugin --profile desktop add file:/path/to/dsh-pet-fairy-0.4.0.tgz
 ```
 
 装完**完全重启** DSH（主进程那半只在启动时加载）。

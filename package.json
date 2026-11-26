@@ -1,18 +1,19 @@
 {
-  "name": "dsh-pet-dafeiyu",
-  "version": "0.2.0",
+  "name": "dsh-pet-fairy",
+  "version": "0.4.0",
   "description": "DSH 桌宠 fairy：一只会看你的眼睛 — 随模型输出垂眼皮、扫描、花屏，可拖动、5 套配色",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
-    "./client": "./lib/client.v3.js",
+    "./client": "./lib/client.v5.js",
     "./package.json": "./package.json",
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./locale/*.json": "./locale/*.json"
   },
   "files": [
-    "lib",
+    "lib/client.v5.js",
+    "lib/index.js",
     "locale",
     "cordis.patch.yml",
     "README.md",
@@ -42,7 +43,9 @@
       "patch": "./cordis.patch.yml"
     },
     "client": {
-      "inject": [],
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
       "platform": "web"
     },
     "engines": {
